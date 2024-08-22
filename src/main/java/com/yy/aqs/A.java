@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author: yg
  *****************************************************************************/
 public class A {
-    //
+    // abc
 
     private AtomicInteger atomicInteger = new AtomicInteger();
 
