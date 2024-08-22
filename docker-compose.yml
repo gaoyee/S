@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass Msrt7g676
+    volumes:
+      - redis-data:/data
+
+  mariadb:
+    image: mariadb:5.5.60  # 注意：这个标签可能不存在，你需要替换为实际可用的标签或构建自己的镜像
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: gaoye
+      MYSQL_PASSWORD: 123456
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+  mariadb-data:
